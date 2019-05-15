@@ -25,7 +25,8 @@ class App extends Component {
 
   searchId = (event) => {
     event.preventDefault()
-    console.log(event.target.element[0].value)
+    debugger;
+    console.log(event.target.elements[0].value)
   }
 
   render() {
