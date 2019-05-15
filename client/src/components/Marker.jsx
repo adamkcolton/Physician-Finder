@@ -4,7 +4,7 @@ class Marker extends Component {
     state = {}
     render() {
         return (
-            <p>You are here!</p>
+            <i class="fa fa-arrow-down fa-2x" aria-hidden="true"></i>
         );
     }
 }
