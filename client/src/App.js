@@ -4,6 +4,7 @@ import SearchForm from './components/SearchForm';
 import { alertMessage, searchId } from './services/search';
 
 import './App.css';
+import { type } from 'os';
 
 class App extends Component {
   state = {
@@ -25,8 +26,11 @@ class App extends Component {
 
   formSubmit = (event) => {
     event.preventDefault()
-    searchId(event.target.elements[0].value).then((r) => {
-      console.log(r)
+    var firstName = event.target.elements[0].value;
+    var middleInitial = event.target.elements[1].value;
+    var lastName = event.target.elements[2].value;
+    searchId(firstName, middleInitial, lastName).then((r) => {
+      console.log(typeof r)
     })
   }
 
