@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Map from "./components/Map";
 
 import './App.css';
 
@@ -8,6 +9,9 @@ class App extends Component {
     return (
       <div className="App">
         <h1>HELLo</h1>
+        <div className="mapDisplay">
+          <Map />
+        </div>
       </div>
     );
   }
