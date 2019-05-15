@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
 import SearchForm from './components/SearchForm';
-import { alertMessage } from './services/search';
+import { alertMessage, searchId } from './services/search';
 
 import './App.css';
 
@@ -23,10 +23,11 @@ class App extends Component {
     alertMessage('hello')
   }
 
-  searchId = (event) => {
+  formSubmit = (event) => {
     event.preventDefault()
-    debugger;
-    console.log(event.target.elements[0].value)
+    searchId(event.target.elements[0].value).then((r) => {
+      console.log(r)
+    })
   }
 
   render() {
@@ -34,7 +35,7 @@ class App extends Component {
       <div className="App container">
         <h1>Physician Finder</h1>
         <SearchForm
-          search={this.searchId}
+          search={this.formSubmit}
         />
         <div className="mapDisplay text-center">
           <Map

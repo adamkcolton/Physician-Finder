@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/Khoalabear0424/Physician-Finder#readme",
   "dependencies": {
-    "body-parse": "^0.1.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "mongojs": "^2.6.0",
     "nodemon": "^1.19.0"
