@@ -4,7 +4,7 @@ class Marker extends Component {
     state = {}
     render() {
         return (
-            <img src="" />
+            <p>You are here!</p>
         );
     }
 }
