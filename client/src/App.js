@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Map from "./components/Map";
-import SearchForm from "./components/SearchForm";
+import Map from './components/Map';
+import SearchForm from './components/SearchForm';
+import { alertMessage } from './services/search'
 
 import './App.css';
 
@@ -12,6 +13,10 @@ class App extends Component {
         lng: -98.5795
       }
     ]
+  }
+
+  async componentDidMount() {
+    alertMessage('hello')
   }
 
   render() {
