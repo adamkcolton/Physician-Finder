@@ -4,7 +4,7 @@ import SearchForm from './components/SearchForm';
 import { alertMessage, searchId } from './services/search';
 
 import './App.css';
-import { type } from 'os';
+// import { type } from 'os';
 
 class App extends Component {
   state = {
@@ -29,8 +29,12 @@ class App extends Component {
     var firstName = event.target.elements[0].value;
     var middleInitial = event.target.elements[1].value;
     var lastName = event.target.elements[2].value;
+    const { markerCoords } = this.state
+
     searchId(firstName, middleInitial, lastName).then((r) => {
-      console.log(typeof r)
+      console.log(r)
+      markerCoords.push({ lat: r[0].lat, lng: r[0].lng });
+      this.setState({ markerCoords });
     })
   }
 

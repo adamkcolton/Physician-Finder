@@ -15,7 +15,7 @@ app.use(function (req, res, next) {
 });
 
 var databaseUrl = "physicianFinder_DB";
-var collections = ["physicianData", "coords"];
+var collections = ["K", "coords"];
 
 var db = mongojs(databaseUrl, collections);
 db.on("error", function (error) {
