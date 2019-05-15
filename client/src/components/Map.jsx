@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from "./Marker";
+console.log(process.env.REACT_APP_MAP_KEY)
 
 class Map extends Component {
     static defaultProps = {
@@ -16,7 +17,7 @@ class Map extends Component {
             // Important! Always set the container height explicitly
             <div style={{ height: '500px', width: '100' }} className="m-4">
                 <GoogleMapReact
-                    bootstrapURLKeys={{ key:  }}
+                    bootstrapURLKeys={{ key: process.env.REACT_APP_MAP_KEY }}
                     defaultCenter={this.props.center}
                     defaultZoom={this.props.zoom}
                 >
