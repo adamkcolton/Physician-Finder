@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Map from "./components/Map";
+import SearchForm from "./components/SearchForm";
 
 import './App.css';
 
@@ -9,18 +10,15 @@ class App extends Component {
       {
         lat: 39.8283,
         lng: -98.5795
-      },
-      {
-        lat: 37.7749,
-        lng: -122.4194
       }
     ]
   }
 
   render() {
     return (
-      <div className="App">
-        <h1>HELLo</h1>
+      <div className="App container">
+        <h1>Physician Finder</h1>
+        <SearchForm />
         <div className="mapDisplay text-center">
           <Map
             markerCoords={this.state.markerCoords}
