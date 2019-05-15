@@ -9,6 +9,10 @@ class App extends Component {
       {
         lat: 39.8283,
         lng: -98.5795
+      },
+      {
+        lat: 37.7749,
+        lng: -122.4194
       }
     ]
   }

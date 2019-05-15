@@ -13,7 +13,6 @@ class Map extends Component {
 
     render() {
         const { markerCoords } = this.props
-        console.log(markerCoords[0].lng)
         return (
             // Important! Always set the container height explicitly
             <div style={{ height: '500px', width: '100' }} className="m-4">
@@ -22,10 +21,12 @@ class Map extends Component {
                     defaultCenter={this.props.center}
                     defaultZoom={this.props.zoom}
                 >
-                    <Marker
-                        lat={markerCoords[0].lat}
-                        lng={markerCoords[0].lng}
-                    />
+                    {markerCoords.map(marker =>
+                        <Marker
+                            lat={marker.lat}
+                            lng={marker.lng}
+                        />
+                    )}
                 </GoogleMapReact>
             </div>
         );
