@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>HELLo</h1>
-        <div className="mapDisplay">
+        <div className="mapDisplay text-center">
           <Map />
         </div>
       </div>
