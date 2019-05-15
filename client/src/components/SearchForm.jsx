@@ -4,18 +4,18 @@ class SearchForm extends Component {
     state = {}
     render() {
         return (
-            <form>
-                <div class="form-row">
-                    <div class="col-4">
-                        <input type="text" class="form-control" placeholder="First name" />
+            <form id="searchForm" onSubmit={this.props.search}>
+                <div className="form-row">
+                    <div className="col-4">
+                        <input type="text" className="form-control" placeholder="First name" />
                     </div>
-                    <div class="col-2">
-                        <input type="text" class="form-control" placeholder="Mid Initial" />
+                    <div className="col-2">
+                        <input type="text" className="form-control" placeholder="Mid Initial" />
                     </div>
-                    <div class="col-4">
-                        <input type="text" class="form-control" placeholder="Last name" />
+                    <div className="col-4">
+                        <input type="text" className="form-control" placeholder="Last name" />
                     </div>
-                    <div class="col-1">
+                    <div className="col-1">
                         <button className="btn btn-primary">Find</button>
                     </div>
                 </div>

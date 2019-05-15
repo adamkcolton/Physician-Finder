@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
 import SearchForm from './components/SearchForm';
-import { alertMessage } from './services/search'
+import { alertMessage } from './services/search';
 
 import './App.css';
 
@@ -16,14 +16,25 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    // alertMessage('hello')
+  }
+
+  async componentDidUpdate() {
     alertMessage('hello')
+  }
+
+  searchId = (event) => {
+    event.preventDefault()
+    console.log(event.target.element[0].value)
   }
 
   render() {
     return (
       <div className="App container">
         <h1>Physician Finder</h1>
-        <SearchForm />
+        <SearchForm
+          search={this.searchId}
+        />
         <div className="mapDisplay text-center">
           <Map
             markerCoords={this.state.markerCoords}

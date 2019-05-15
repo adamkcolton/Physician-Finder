@@ -21,8 +21,9 @@ class Map extends Component {
                     defaultCenter={this.props.center}
                     defaultZoom={this.props.zoom}
                 >
-                    {markerCoords.map(marker =>
+                    {markerCoords.map((marker, index) =>
                         <Marker
+                            key={index}
                             lat={marker.lat}
                             lng={marker.lng}
                         />
