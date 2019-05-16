@@ -32,3 +32,11 @@ form{
   width: 97%;
   margin: auto;
 }
+
+.card-body{
+  display: -ms-inline-grid !important;
+}
+
+.dataText{
+  font-weight: 100;
+}

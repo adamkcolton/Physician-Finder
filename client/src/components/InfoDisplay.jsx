@@ -7,8 +7,10 @@ class InfoDisplay extends Component {
             <div className="container">
                 <div className="card">
                     <div className="card-body">
-                        This is some text within a card body.
-                </div>
+                        <h5 className="card-title">Name</h5>
+                        <h6>Role: <span className="dataText">Medical Doctor</span>
+                        </h6>
+                    </div>
                 </div>
             </div>
         );

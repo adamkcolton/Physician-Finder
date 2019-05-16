@@ -41,12 +41,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App container">
-        <h1>Physician Finder</h1>
+      <div className="container">
+        <h1 className="text-center">Physician Finder</h1>
         <SearchForm
+          className="text-center"
           search={this.formSubmit}
         />
-        <div className="mapDisplay text-center">
+        <div className="mapDisplay">
           <Map
             markerCoords={this.state.markerCoords}
           />
