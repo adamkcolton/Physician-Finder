@@ -3,6 +3,12 @@ var mongojs = require("mongojs");
 var bodyParser = require('body-parser');
 var app = express();
 var cors = require('cors');
+require('dotenv').config()
+const googleMapsClient = require('@google/maps').createClient({
+    key: process.env.REACT_APP_MAP_KEY,
+    Promise: Promise
+});
+
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -35,6 +41,14 @@ app.post('/search-physician/:first/:middle/:last', (req, res) => {
             console.log(error);
         }
         else {
+            googleMapsClient.geocode({ address: found[0].address })
+                .asPromise()
+                .then((response) => {
+                    console.log(response.json.results);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
             res.json(found)
         }
     });
