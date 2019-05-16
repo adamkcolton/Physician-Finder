@@ -4,6 +4,7 @@ import SearchForm from './components/SearchForm';
 import { alertMessage, searchId } from './services/search';
 
 import './App.css';
+import InfoDisplay from './components/InfoDisplay';
 // import { type } from 'os';
 
 class App extends Component {
@@ -49,6 +50,7 @@ class App extends Component {
           <Map
             markerCoords={this.state.markerCoords}
           />
+          <InfoDisplay />
         </div>
       </div>
     );

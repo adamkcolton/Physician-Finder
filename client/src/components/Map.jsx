@@ -15,7 +15,7 @@ class Map extends Component {
         const { markerCoords } = this.props
         return (
             // Important! Always set the container height explicitly
-            <div style={{ height: '500px', width: '100' }} className="m-4">
+            <div style={{ height: '400px', width: '100' }} className="m-4">
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: process.env.REACT_APP_MAP_KEY }}
                     defaultCenter={this.props.center}
