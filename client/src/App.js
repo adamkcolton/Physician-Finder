@@ -41,7 +41,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container main">
         <h1 className="text-center">Physician Finder</h1>
         <SearchForm
           className="text-center"
