@@ -53,17 +53,26 @@ app.post('/search-physician/:first/:middle/:last', (req, res) => {
             console.log(error);
         }
         else {
-            // googleMapsClient.geocode({ address: found[0].address })
-            //     .asPromise()
-            //     .then((response) => {
-            //         found.push(response.json.results[0].geometry.location)
-            //         console.log(found);
-            //         res.json(found)
-            //     })
-            //     .catch((err) => {
-            //         console.log(err);
-            //     });
-            console.log(found)
+            var {
+                Recipient_Primary_Business_Street_Address_Line1: street1,
+                Recipient_Primary_Business_Street_Address_Line2: street2,
+                Recipient_City: city,
+                Recipient_State: state,
+                Recipient_Zip_Code: zip,
+                Recipient_Country: country } = found[0];
+            var fullAddress = street1 + street2 + city + state + zip + country;
+            console.log(fullAddress)
+
+            googleMapsClient.geocode({ address: fullAddress })
+                .asPromise()
+                .then((response) => {
+                    found.push(response.json.results[0].geometry.location)
+                    console.log(found);
+                    res.json(found)
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
     });
 });
