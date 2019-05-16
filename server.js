@@ -21,7 +21,7 @@ app.use(function (req, res, next) {
 });
 
 var databaseUrl = "physicianFinder_DB";
-var collections = ["K", "coords"];
+var collections = ["physicianData", "coords"];
 
 var db = mongojs(databaseUrl, collections);
 db.on("error", function (error) {
@@ -44,12 +44,12 @@ app.post('/search-physician/:first/:middle/:last', (req, res) => {
             googleMapsClient.geocode({ address: found[0].address })
                 .asPromise()
                 .then((response) => {
-                    console.log(response.json.results);
+                    console.log(response.json.results[0].geometry.location);
+                    res.json(response.json.results[0].geometry.location)
                 })
                 .catch((err) => {
                     console.log(err);
                 });
-            res.json(found)
         }
     });
 });
