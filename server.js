@@ -30,27 +30,40 @@ db.on("error", function (error) {
 
 //------------ROUTES------------//
 
+app.get('/all-data', (req, res) => {
+    db.physicianData.find({}, (error, found) => {
+        if (error) {
+            console.log(error)
+        }
+        else {
+            res.send(found)
+            console.log(found)
+        }
+    })
+})
+
 app.post('/search-physician/:first/:middle/:last', (req, res) => {
     var firstName = req.params.first;
     var middle = req.params.middle;
     var lastName = req.params.last;
-    // console.log(`${firstName} ${middle} ${lastName}`)
+    console.log(`${firstName} ${middle} ${lastName}`)
 
-    db.physicianData.find({ 'firstName': firstName, 'middle': middle, 'last': lastName }, function (error, found) {
+    db.physicianData.find({ 'Physician_First_Name': `"${firstName}"`, 'Physician_Middle_Name': `"${middle}"`, 'Physician_Last_Name': `"${lastName}"` }, function (error, found) {
         if (error) {
             console.log(error);
         }
         else {
-            googleMapsClient.geocode({ address: found[0].address })
-                .asPromise()
-                .then((response) => {
-                    found.push(response.json.results[0].geometry.location)
-                    console.log(found);
-                    res.json(found)
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+            // googleMapsClient.geocode({ address: found[0].address })
+            //     .asPromise()
+            //     .then((response) => {
+            //         found.push(response.json.results[0].geometry.location)
+            //         console.log(found);
+            //         res.json(found)
+            //     })
+            //     .catch((err) => {
+            //         console.log(err);
+            //     });
+            console.log(found)
         }
     });
 });
