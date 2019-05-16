@@ -34,7 +34,7 @@ app.post('/search-physician/:first/:middle/:last', (req, res) => {
     var firstName = req.params.first;
     var middle = req.params.middle;
     var lastName = req.params.last;
-    console.log(`${firstName} ${middle} ${lastName}`)
+    // console.log(`${firstName} ${middle} ${lastName}`)
 
     db.physicianData.find({ 'firstName': firstName, 'middle': middle, 'last': lastName }, function (error, found) {
         if (error) {
@@ -44,8 +44,9 @@ app.post('/search-physician/:first/:middle/:last', (req, res) => {
             googleMapsClient.geocode({ address: found[0].address })
                 .asPromise()
                 .then((response) => {
-                    console.log(response.json.results[0].geometry.location);
-                    res.json(response.json.results[0].geometry.location)
+                    found.push(response.json.results[0].geometry.location)
+                    console.log(found);
+                    res.json(found)
                 })
                 .catch((err) => {
                     console.log(err);

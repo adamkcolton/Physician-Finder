@@ -33,7 +33,7 @@ class App extends Component {
 
     searchId(firstName, middleInitial, lastName).then((r) => {
       console.log(r)
-      markerCoords.push({ lat: r.lat, lng: r.lng });
+      markerCoords.push({ lat: r[1].lat, lng: r[1].lng });
       this.setState({ markerCoords });
     })
   }
