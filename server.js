@@ -65,13 +65,13 @@ app.post('/search-physician/:first/:middle/:last', (req, res) => {
                 Recipient_Zip_Code: zip,
                 Recipient_Country: country } = found[0];
 
-            var fullAddress = street1 + street2 + city + state + zip + country;
+            var fullAddress = `${street1.slice(1, -1)} ${street2.slice(1, -1)}, ${city.slice(1, -1)} ${state.slice(1, -1)} ${zip.slice(1, -1)}, ${country.slice(1, -1)}`;
             console.log(fullAddress)
 
             googleMapsClient.geocode({ address: fullAddress })
                 .asPromise()
                 .then((response) => {
-                    found.push(response.json.results[0].geometry.location)
+                    found.push(response.json.results[0].geometry.location, fullAddress)
                     console.log(found);
                     res.json(found)
                 })
