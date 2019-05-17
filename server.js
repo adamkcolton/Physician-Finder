@@ -84,6 +84,6 @@ app.post('/search-physician/:first/:middle/:last', (req, res) => {
 
 
 
-app.listen(3001, function () {
+app.listen(process.env.PORT || 3001, function () {
     console.log("App running on port 3001!");
 });
