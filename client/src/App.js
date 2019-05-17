@@ -35,10 +35,27 @@ class App extends Component {
     var firstName = event.target.elements[0].value;
     var middleInitial = event.target.elements[1].value;
     var lastName = event.target.elements[2].value;
-    const { physInfo } = this.state
+    var { physInfo } = this.state
 
     searchId(firstName, middleInitial, lastName).then((r) => {
       console.log(r)
+      var {
+        Physician_First_Name: firstName,
+        Physician_Middle_Name: middle,
+        Physician_Last_Name: lastName,
+        Physician_Primary_Type: role,
+        Physician_Specialty: specialty,
+        Program_Year: year,
+        Submitting_Applicable_Manufacturer_or_Applicable_GPO_Name: gpo } = r[0];
+      physInfo = [{
+        name: firstName,
+        role: "Structural Designer",
+        specialty: "Shoring",
+        year: "2016",
+        gpoName: "The Orthopaedic Implant Company",
+        lat: 39.8283,
+        lng: -98.5795
+      }, ...physInfo]
       physInfo.push({ lat: r[1].lat, lng: r[1].lng });
       this.setState({ physInfo });
     })

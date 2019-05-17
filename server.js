@@ -60,6 +60,7 @@ app.post('/search-physician/:first/:middle/:last', (req, res) => {
                 Recipient_State: state,
                 Recipient_Zip_Code: zip,
                 Recipient_Country: country } = found[0];
+
             var fullAddress = street1 + street2 + city + state + zip + country;
             console.log(fullAddress)
 
