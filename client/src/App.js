@@ -33,30 +33,34 @@ class App extends Component {
   formSubmit = (event) => {
     event.preventDefault()
     var firstName = event.target.elements[0].value;
-    var middleInitial = event.target.elements[1].value;
+    var middleInitial = event.target.elements[1].value || " ";
     var lastName = event.target.elements[2].value;
+    console.log(middleInitial)
     var { physInfo } = this.state
 
     searchId(firstName, middleInitial, lastName).then((r) => {
-      console.log(r)
-      var {
-        Physician_First_Name: firstName,
-        Physician_Middle_Name: middle,
-        Physician_Last_Name: lastName,
-        Physician_Primary_Type: role,
-        Physician_Specialty: specialty,
-        Program_Year: year,
-        Submitting_Applicable_Manufacturer_or_Applicable_GPO_Name: gpo } = r[0];
-      physInfo = [{
-        name: `${firstName.slice(1, -1)} ${middle.slice(1, -1)}  ${lastName.slice(1, -1)}`,
-        role: role.slice(1, -1),
-        specialty: specialty.slice(1, -1),
-        year: year.slice(1, -1),
-        gpoName: gpo.slice(1, -1),
-        lat: r[1].lat,
-        lng: r[1].lng
-      }, ...physInfo]
-      this.setState({ physInfo });
+      if (r) {
+        var {
+          Physician_First_Name: firstName,
+          Physician_Middle_Name: middle,
+          Physician_Last_Name: lastName,
+          Physician_Primary_Type: role,
+          Physician_Specialty: specialty,
+          Program_Year: year,
+          Submitting_Applicable_Manufacturer_or_Applicable_GPO_Name: gpo } = r[0];
+        physInfo = [{
+          name: `${firstName.slice(1, -1)} ${middle.slice(1, -1)}  ${lastName.slice(1, -1)}`,
+          role: role.slice(1, -1),
+          specialty: specialty.slice(1, -1),
+          year: year.slice(1, -1),
+          gpoName: gpo.slice(1, -1),
+          lat: r[1].lat,
+          lng: r[1].lng
+        }, ...physInfo]
+        this.setState({ physInfo });
+      } else {
+        alert('Please Enter Valid Name')
+      }
     })
   }
 

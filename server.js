@@ -51,8 +51,9 @@ app.post('/search-physician/:first/:middle/:last', (req, res) => {
     db.physicianData.find({ 'Physician_First_Name': `"${firstName}"`, 'Physician_Middle_Name': `"${middle}"`, 'Physician_Last_Name': `"${lastName}"` }, function (error, found) {
         if (error) {
             console.log(error);
-        }
-        else {
+        } else if (!found[0]) {
+            res.send(false)
+        } else {
             var {
                 Recipient_Primary_Business_Street_Address_Line1: street1,
                 Recipient_Primary_Business_Street_Address_Line2: street2,
