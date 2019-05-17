@@ -5,7 +5,7 @@ import Marker from "./Marker";
 class Map extends Component {
     static defaultProps = {
         center: {
-            lat: 39.8283,
+            lat: 37.8283,
             lng: -98.5795
         },
         zoom: 4
@@ -15,7 +15,7 @@ class Map extends Component {
         const { markerCoords } = this.props
         return (
             // Important! Always set the container height explicitly
-            <div style={{ height: '400px', width: '100' }} className="m-4">
+            <div style={{ height: '375px', width: '100' }} className="m-4">
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: process.env.REACT_APP_MAP_KEY }}
                     defaultCenter={this.props.center}

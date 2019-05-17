@@ -11,7 +11,7 @@ class App extends Component {
   state = {
     physInfo: [
       {
-        name: "Khoa",
+        name: "Khoa Nguyen",
         role: "Full Stack Developer",
         specialty: "Backend",
         year: "2019",
