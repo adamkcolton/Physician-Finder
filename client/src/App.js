@@ -75,8 +75,9 @@ class App extends Component {
           <Map
             markerCoords={this.state.physInfo}
           />
-          {this.state.physInfo.map((data) =>
+          {this.state.physInfo.map((data, index) =>
             <InfoDisplay
+              key={index}
               name={data.name}
               role={data.role}
               specialty={data.specialty}
