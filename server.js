@@ -4,6 +4,10 @@ var bodyParser = require('body-parser');
 var app = express();
 var cors = require('cors');
 var mongoose = require('mongoose');
+var path = require('path');
+var connectDB = require('./config/db');
+
+connectDB();
 
 require('dotenv').config()
 const googleMapsClient = require('@google/maps').createClient({
@@ -17,6 +21,7 @@ mongoose.connect('mongodb://heroku_64fn39ml:tj13bp6hn4avvanvfuu6mqth2b@ds145456.
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 
 app.use(function (req, res, next) {
@@ -86,7 +91,9 @@ app.post('/search-physician/:first/:middle/:last', (req, res) => {
     });
 });
 
-
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 app.listen(process.env.PORT || 3001, function () {
     console.log("App running on port 3001!");
