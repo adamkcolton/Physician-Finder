@@ -35,7 +35,6 @@ class App extends Component {
     var firstName = event.target.elements[0].value;
     var middleInitial = event.target.elements[1].value || " ";
     var lastName = event.target.elements[2].value;
-    console.log(middleInitial)
     var { physInfo } = this.state
 
     searchId(firstName, middleInitial, lastName).then((r) => {

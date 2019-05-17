@@ -43,12 +43,15 @@ app.get('/all-data', (req, res) => {
 })
 
 app.post('/search-physician/:first/:middle/:last', (req, res) => {
-    var firstName = req.params.first;
-    var middle = req.params.middle;
-    var lastName = req.params.last;
+    var firstName = `"${req.params.first}"`;
+    var middle = `"${req.params.middle}"`;
+    var lastName = `"${req.params.last}"`;
     console.log(`${firstName} ${middle} ${lastName}`)
+    var dbQuery = { 'Physician_First_Name': firstName, 'Physician_Last_Name': lastName }
+    if (middle.match(/[a-z]/i)) dbQuery['Physician_Middle_Name'] = middle
+    console.log(dbQuery)
 
-    db.physicianData.find({ 'Physician_First_Name': `"${firstName}"`, 'Physician_Middle_Name': `"${middle}"`, 'Physician_Last_Name': `"${lastName}"` }, function (error, found) {
+    db.physicianData.find(dbQuery, function (error, found) {
         if (error) {
             console.log(error);
         } else if (!found[0]) {
