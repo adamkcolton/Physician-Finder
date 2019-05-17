@@ -12,12 +12,12 @@ class App extends Component {
     physInfo: [
       {
         name: "Khoa",
-        role: "Structural Designer",
-        specialty: "Shoring",
-        year: "2016",
-        gpoName: "The Orthopaedic Implant Company",
-        lat: 39.8283,
-        lng: -98.5795
+        role: "Full Stack Developer",
+        specialty: "Backend",
+        year: "2019",
+        gpoName: "University of California, Berkeley",
+        lat: 37.668940,
+        lng: -122.085210
       }
     ]
   }
