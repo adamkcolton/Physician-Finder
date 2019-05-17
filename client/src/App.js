@@ -48,13 +48,11 @@ class App extends Component {
         Program_Year: year,
         Submitting_Applicable_Manufacturer_or_Applicable_GPO_Name: gpo } = r[0];
       physInfo = [{
-        name: firstName,
-        role: "Structural Designer",
-        specialty: "Shoring",
-        year: "2016",
-        gpoName: "The Orthopaedic Implant Company",
-        lat: 39.8283,
-        lng: -98.5795
+        name: `${firstName.slice(1, -1)} ${middle.slice(1, -1)}  ${lastName.slice(1, -1)}`,
+        role: role.slice(1, -1),
+        specialty: specialty.slice(1, -1),
+        year: year.slice(1, -1),
+        gpoName: gpo.slice(1, -1)
       }, ...physInfo]
       physInfo.push({ lat: r[1].lat, lng: r[1].lng });
       this.setState({ physInfo });

@@ -6,7 +6,7 @@ class InfoDisplay extends Component {
         var { name, role, specialty, year, gpoName } = this.props;
 
         return (
-            <div className="container">
+            <div className="container m-1">
                 <div className="card">
                     <div className="card-body">
                         <h6> Name
