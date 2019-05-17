@@ -5,7 +5,6 @@ import { alertMessage, searchId } from './services/search';
 
 import './App.css';
 import InfoDisplay from './components/InfoDisplay';
-// import { type } from 'os';
 
 class App extends Component {
   state = {
@@ -20,14 +19,6 @@ class App extends Component {
         lng: -122.085210
       }
     ]
-  }
-
-  async componentDidMount() {
-    // alertMessage('hello')
-  }
-
-  async componentDidUpdate() {
-    alertMessage('hello')
   }
 
   formSubmit = (event) => {
