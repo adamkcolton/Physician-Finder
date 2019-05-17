@@ -52,9 +52,10 @@ class App extends Component {
         role: role.slice(1, -1),
         specialty: specialty.slice(1, -1),
         year: year.slice(1, -1),
-        gpoName: gpo.slice(1, -1)
+        gpoName: gpo.slice(1, -1),
+        lat: r[1].lat,
+        lng: r[1].lng
       }, ...physInfo]
-      physInfo.push({ lat: r[1].lat, lng: r[1].lng });
       this.setState({ physInfo });
     })
   }
