@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Khoalabear0424/Physician-Finder.git",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "url": "git+https://github.com/Khoalabear0424/Physician-Finder.git"
   },
   "keywords": [],
   "author": "",
