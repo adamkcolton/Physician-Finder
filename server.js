@@ -33,8 +33,8 @@ db.on("error", function (error) {
     console.log("Database Error:", error);
 });
 
-//------------ROUTES------------//
 
+//------------ROUTES------------//
 app.get('/all-data', (req, res) => {
     db.physicianData.find({}, (error, found) => {
         if (error) {
