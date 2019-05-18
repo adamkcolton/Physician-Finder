@@ -26,6 +26,7 @@ class Map extends Component {
                             key={index}
                             lat={marker.lat}
                             lng={marker.lng}
+                            color={marker.color}
                         />
                     )}
                 </GoogleMapReact>

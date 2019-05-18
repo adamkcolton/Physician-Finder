@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
 import SearchForm from './components/SearchForm';
-import { alertMessage, searchId } from './services/search';
+import { searchId } from './services/search';
+import { getRandomColor } from "./services/randColor";
 
 import './App.css';
 import InfoDisplay from './components/InfoDisplay';
@@ -16,7 +17,8 @@ class App extends Component {
         specialty: "Backend",
         gpoName: "University of California, Berkeley",
         lat: 37.668940,
-        lng: -122.085210
+        lng: -122.085210,
+        color: getRandomColor()
       }
     ]
   }
@@ -45,7 +47,8 @@ class App extends Component {
           specialty: specialty.slice(1, -1),
           gpoName: gpo.slice(1, -1),
           lat: r[1].lat,
-          lng: r[1].lng
+          lng: r[1].lng,
+          color: getRandomColor()
         }, ...physInfo]
         this.setState({ physInfo });
       } else {
@@ -68,6 +71,7 @@ class App extends Component {
           />
           {this.state.physInfo.map((data, index) =>
             <InfoDisplay
+              color={data.color}
               key={index}
               address={data.address}
               name={data.name}

@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 class InfoDisplay extends Component {
     state = {}
     render() {
-        var { name, role, specialty, year, gpoName, address } = this.props;
+        var { name, role, specialty, gpoName, address } = this.props;
 
         return (
             <div className="container m-1">
                 <div className="card">
                     <div className="card-body">
                         <h6> Name
-                            <span className="dataText"> {name}</span>
+                            <span style={{ "color": this.props.color }} className="dataText"> {name}</span>
                         </h6>
                         <h6> Address
                             <span className="dataText"> {address}</span>
