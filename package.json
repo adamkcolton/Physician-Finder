@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/Khoalabear0424/Physician-Finder#readme",
   "dependencies": {
-    "@google/maps": "^0.5.5",
-    "body-parser": "^1.19.0",
+    "@google/maps": "0.5.5",
+    "body-parser": "1.19.0",
     "config": "3.1.0",
     "cors": "2.8.5",
     "dotenv": "8.0.0",
