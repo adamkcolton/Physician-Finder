@@ -25,8 +25,8 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 //     next();
 // });
 
-var databaseUrl = "physicianFinder_DB";
-var collections = ["physicianData", "coords"];
+var databaseUrl = process.env.MONGODB_URI || "physicianFinder_DB";
+var collections = ["physicianData"];
 
 var db = mongojs(databaseUrl, collections);
 db.on("error", function (error) {

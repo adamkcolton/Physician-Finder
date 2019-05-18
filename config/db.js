@@ -6,7 +6,7 @@ const connectDB = async () => {
             useNewUrlParser: true,
             useCreateIndex: true
         });
-
+        console.log(process.env.MONGODB_URI)
         console.log('MongoDB Connected...')
     } catch (err) {
         console.error(err.message);
