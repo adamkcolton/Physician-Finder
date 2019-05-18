@@ -3,7 +3,6 @@ var mongojs = require("mongojs");
 var bodyParser = require('body-parser');
 var app = express();
 var cors = require('cors');
-var mongoose = require('mongoose');
 var path = require('path');
 var connectDB = require('./config/db');
 
@@ -14,9 +13,6 @@ const googleMapsClient = require('@google/maps').createClient({
     key: process.env.REACT_APP_MAP_KEY,
     Promise: Promise
 });
-
-mongoose.connect('mongodb://heroku_64fn39ml:tj13bp6hn4avvanvfuu6mqth2b@ds145456.mlab.com:45456/heroku_64fn39ml');
-
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));

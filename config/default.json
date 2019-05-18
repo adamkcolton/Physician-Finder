@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb://localhost:27017/physicianFinder_DB"
+    "mongoURI": "mongodb://localhost:27017/physicianFinder_DB",
+    "MONGODB_URI": "mongodb://heroku_64fn39ml:tj13bp6hn4avvanvfuu6mqth2b@ds145456.mlab.com:45456/heroku_64fn39ml"
 }
