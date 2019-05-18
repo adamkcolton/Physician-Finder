@@ -20,10 +20,10 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "client", "build")))
 
 
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-    next();
-});
+// app.use(function (req, res, next) {
+//     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+//     next();
+// });
 
 var databaseUrl = "physicianFinder_DB";
 var collections = ["physicianData", "coords"];
@@ -91,6 +91,6 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
-app.listen(process.env.PORT || 3001, function () {
-    console.log("App running on port 3001!");
+app.listen(process.env.PORT || 4000, function () {
+    console.log("App running on port 4000!");
 });

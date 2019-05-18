@@ -3,9 +3,9 @@ export function alertMessage(message) {
 }
 
 export function searchId(f, m, l) {
-    return fetch(`http://localhost:3001/search-physician/${f}/${m}/${l}`, {
-        method: 'POST',
-        mode: "no-cors"
+    return fetch(`/search-physician/${f}/${m}/${l}`, {
+        method: 'POST'
+        // mode: "no-cors"
     }).then(function (response) {
         if (response.ok) {
             console.log(response)
