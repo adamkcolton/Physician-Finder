@@ -54,9 +54,8 @@ app.post('/search-physician/:first/:middle/:last', (req, res) => {
     console.log(`${firstName} ${middle} ${lastName}`)
     var dbQuery = { 'Physician_First_Name': firstName, 'Physician_Last_Name': lastName }
     if (middle.match(/[a-z]/i)) dbQuery['Physician_Middle_Name'] = middle
-    console.log(dbQuery)
 
-    db.physicianData.find(dbQuery, function (error, found) {
+    db.physicianData.findOne(dbQuery, function (error, found) {
         if (error) {
             console.log(error);
         } else if (!found[0]) {
